@@ -1,0 +1,25 @@
+---
+import Layout from "src/layouts/Layout.astro";
+import TitleGradient from "src/components/TitleGradient.astro";
+import Card from "src/components/Card.astro";
+import { cards } from "src/data/cards"
+---
+
+<Layout title="Welcome to Astro">
+	<TitleGradient />
+
+	<div class="bg-[#171424] p-4 rounded mt-8 space-y-2">
+		<p class="text-base text-white">
+			Check out the <code class="rounded px-1.5 py-0.5 bg-[#2a233e]">src/pages</code> directory to get started.
+		</p>
+		<p class="text-base text-white">Go to
+			<a href='/about' class="hover:text-[#ff7e33] underline underline-offset-2">about page</a>
+		</p>
+	</div>
+
+	<ul role="list" class="grid grid-cols-1 gap-4 mt-8 md:grid-cols-3">
+		{cards.map((item) => (
+		<Card href={item.href} title={item.title} body={item.body} />
+		))}
+	</ul>
+</Layout>
