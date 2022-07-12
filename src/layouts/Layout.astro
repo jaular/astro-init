@@ -12,7 +12,7 @@ const meta = {
 	twitterUser: '@astrodotbuild',
 	...customMeta,
 };
-const currentPage = Astro.canonicalURL.href;
+const currentPage = Astro.canonicalURL.pathname;
 // https://docs.astro.build/en/reference/api-reference/#astrocanonicalurl
 ---
 
@@ -23,14 +23,14 @@ const currentPage = Astro.canonicalURL.href;
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width" />
 	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
-	<link rel="canonical" href={currentPage} />
+	<link rel="canonical" href={`https://astro-init.vercel.app${currentPage}`} />
 	<link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
 
 	<title>{meta.title}</title>
 	<meta content={meta.description} name="description" />
 	<meta name="robots" content="follow, index" />
 
-	<meta property="og:url" content={currentPage} />
+	<meta property="og:url" content={`https://astro-init.vercel.app${currentPage}`} />
 	<meta property="og:type" content={meta.type} />
 	<meta property="og:site_name" content={meta.siteName} />
 	<meta property="og:description" content={meta.description} />
