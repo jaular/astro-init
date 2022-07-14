@@ -12,6 +12,9 @@ const meta = {
 	twitterUser: '@astrodotbuild',
 	...customMeta,
 };
+
+const { pathname } = Astro.canonicalURL;
+// https://docs.astro.build/en/reference/api-reference/#astrocanonicalurl
 ---
 
 <!DOCTYPE html>
@@ -23,7 +26,7 @@ const meta = {
 	<meta name="viewport" content="width=device-width" />
 	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 	<meta name="robots" content="follow, index" />
-	<link rel="canonical" href={Astro.canonicalURL} />
+	<link rel="canonical" href={`https://astro-init.vercel.app${pathname}`} />
 
 	<!-- Primary Meta Tags -->
 	<title>{meta.title}</title>
@@ -33,7 +36,7 @@ const meta = {
 	<!-- Open Graph / Facebook -->
 	<meta property="og:type" content={meta.type} />
 	<meta property="og:site_name" content={meta.siteName} />
-	<meta property="og:url" content={Astro.canonicalURL} />
+	<meta property="og:url" content={`https://astro-init.vercel.app${pathname}`} />
 	<meta property="og:title" content={meta.title} />
 	<meta property="og:description" content={meta.description} />
 	<meta property="og:image" content={meta.image} />
