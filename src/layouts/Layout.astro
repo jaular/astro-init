@@ -12,35 +12,41 @@ const meta = {
 	twitterUser: '@astrodotbuild',
 	...customMeta,
 };
-const { pathname } = Astro.canonicalURL;
-// https://docs.astro.build/en/reference/api-reference/#astrocanonicalurl
 ---
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+	<!-- Global Metadata -->
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width" />
 	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
-	<link rel="canonical" href={`https://astro-init.vercel.app${pathname}`} />
-	<link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+	<meta name="robots" content="follow, index" />
+	<link rel="canonical" href={Astro.canonicalURL} />
 
+	<!-- Primary Meta Tags -->
 	<title>{meta.title}</title>
+	<meta name="title" content={meta.title} />
 	<meta content={meta.description} name="description" />
 
-	<meta property="og:url" content={`https://astro-init.vercel.app${pathname}`} />
+	<!-- Open Graph / Facebook -->
 	<meta property="og:type" content={meta.type} />
 	<meta property="og:site_name" content={meta.siteName} />
-	<meta property="og:description" content={meta.description} />
+	<meta property="og:url" content={Astro.canonicalURL} />
 	<meta property="og:title" content={meta.title} />
+	<meta property="og:description" content={meta.description} />
 	<meta property="og:image" content={meta.image} />
 
+	<!-- Twitter -->
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:site" content={meta.twitterUser} />
 	<meta name="twitter:title" content={meta.title} />
 	<meta name="twitter:description" content={meta.description} />
 	<meta name="twitter:image" content={meta.image} />
+
+	<!-- Fonts -->
+	<link rel="preload" href="/fonts/inter-var.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
 </head>
 
 <body class="flex flex-col min-h-screen text-[#111111] font-sans">
