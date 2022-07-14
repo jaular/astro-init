@@ -1,0 +1,24 @@
+---
+type Props = {
+  title: string;
+  description: string;
+  publishDate: string;
+  url: string;
+}
+
+const { title, description, publishDate, url } = Astro.props as Props;
+---
+
+<li>
+  <a href={url}
+    class="inline-block w-full h-full group p-4 outline outline-1 outline-[#2a233e] rounded hover:outline-[#4f39fa] focus:outline-[#4f39fa]">
+    <p class="text-xs text-gray-500">{publishDate}</p>
+    <h2 class="mt-2 text-base font-bold">
+      {title}<span
+        class="inline-block ml-1.5 duration-300 ease-in-out group-hover:translate-x-2 group-focus:translate-x-2">&rarr;</span>
+    </h2>
+    <p class="mt-2 text-sm">
+      {description}
+    </p>
+  </a>
+</li>

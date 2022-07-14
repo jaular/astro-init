@@ -1,0 +1,26 @@
+---
+import type { FrontmatterProps } from "src/lib/types";
+import Layout from './Layout.astro'
+
+type Props = {
+  content: FrontmatterProps
+}
+
+const {
+  content: { title, description, publishDate, heroImage },
+} = Astro.props as Props;
+---
+
+<Layout title={title} description={description} image={heroImage.src}>
+  <article class="space-y-6">
+    {heroImage && (
+    <img width="1024" height="600" loading="lazy" src={heroImage.src} alt={heroImage.alt} title={heroImage.alt}
+      class="rounded " />
+    )}
+    <h1 class="text-5xl font-bold">{title}</h1>
+    <p class="text-sm text-gray-500">{publishDate}</p>
+    <div class="leading-relaxed prose max-w-none">
+      <slot />
+    </div>
+  </article>
+</Layout>

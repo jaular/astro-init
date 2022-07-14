@@ -3,3 +3,13 @@ export type CardProps = {
   title: string;
   body: string;
 };
+
+export type FrontmatterProps = {
+  title: string;
+  description: string;
+  publishDate: string;
+  heroImage?: {
+    src: string;
+    alt: string;
+  };
+};

@@ -1,0 +1,22 @@
+---
+import type { FrontmatterProps } from "src/lib/types";
+import Layout from "src/layouts/Layout.astro";
+import BlogPostPreview from "src/components/BlogPostPreview.astro";
+
+// Use Astro.glob to fetch all post with associated frontmatter
+const unsortedPosts = await Astro.glob<FrontmatterProps>("./*.md");
+const posts = unsortedPosts.sort(function (a, b) {
+  return (
+    new Date(b.frontmatter.publishDate).valueOf() - new Date(a.frontmatter.publishDate).valueOf()
+  );
+});
+---
+
+<Layout title="Blog">
+  <ul role="list" class="grid grid-cols-1 gap-4 mt-8 md:grid-cols-2">
+    {posts.map(({ url, frontmatter }) => (
+    <BlogPostPreview title={frontmatter.title} description={frontmatter.description}
+      publishDate={frontmatter.publishDate} url={url} />
+    ))}
+  </ul>
+</Layout>
