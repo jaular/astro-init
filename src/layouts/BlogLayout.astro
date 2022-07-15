@@ -14,12 +14,14 @@ const {
 <Layout title={title} description={description} image={heroImage.src}>
   <article class="space-y-6">
     {heroImage && (
-    <img width="1024" height="600" loading="lazy" src={heroImage.src} alt={heroImage.alt} title={heroImage.alt}
-      class="rounded " />
+    <img width="896" height="400" src={heroImage.src} alt={heroImage.alt} title={heroImage.alt} class="rounded" />
     )}
-    <h1 class="text-5xl font-bold">{title}</h1>
-    <p class="text-sm text-gray-500">{publishDate}</p>
-    <div class="leading-relaxed prose max-w-none">
+    <div>
+      <h1 class="text-4xl font-bold md:text-5xl">{title}</h1>
+      <p class="mt-3 text-sm text-gray-500">{publishDate}</p>
+    </div>
+    <div
+      class="leading-relaxed prose prose-headings:text-[#111111] prose-p:text-[#111111] prose-code:text-[#ff5d01] prose-strong:text-[#111111] max-w-none">
       <slot />
     </div>
   </article>
